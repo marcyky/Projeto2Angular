@@ -1,0 +1,30 @@
+
+@if (mostrarAddTarefa) {
+    <app-button text="Fechar" color="red" (btnClick)="AlteraVisualizacao(false)"></app-button>
+
+}@else {
+    <app-button text="Adicionar Tarefa" color="green" (btnClick)="AlteraVisualizacao(true)"></app-button>
+}
+
+
+<form (ngSubmit)="onSubmit()" *ngIf="mostrarAddTarefa" class="add-form">
+    <div>
+        <mat-form-field class="example-full-width">
+            <mat-label>Tarefa</mat-label>
+            <input matInput placeholder="Informe o nome da tarefa" id="text" name="text" type="text" [(ngModel)]="tarefa">
+        </mat-form-field>
+    </div>
+    
+    <div>
+        <mat-form-field>
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker" name="data" id="data" [(ngModel)]="data">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    </div>
+
+    <input type="submit" value="Salvar Tarefa" class="btn btn-block mb-4">
+
+</form>

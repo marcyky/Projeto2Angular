@@ -1,0 +1,11 @@
+<div class="task"
+    (dblclick)="onToggle(tarefa)"
+    [ngClass]="{reminder: tarefa.concluido}"
+>
+    <h3>{{tarefa.tarefa}}  
+        <button mat-fab aria-label="Bottão para deletar">
+            <mat-icon [ngStyle]="{'color': 'red'}" (click)="onDelete(tarefa)">delete</mat-icon>
+        </button>
+    </h3>
+    <p>{{tarefa.data}}</p>
+</div>
